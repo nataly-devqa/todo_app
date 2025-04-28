@@ -13,10 +13,27 @@
     <div class="conainer">
         <div class="box">
             <h2>To Do List</h2>
-            <input type="text" placeholder="Wreite here..." id="inputBx">
+            <input type="text" placeholder="Write here..." id="inputBx">
             <ul id="list"></ul>
         </div>
     </div>
+
+    <script>
+        let inputBx = document.querySelector('#inputBx');
+        let list = document.querySelector('#list');
+
+        inputBx.addEvetListener("keyup", function (event) {
+            if (event.key == "Enter") {
+                addItem(this.value);
+                this.value = "";
+            }
+        });
+
+        let addItem = (input) => {
+            let listItem = '${input} <i></i>';
+            list.appendChild(listItem);
+        };
+    </script>
 </body>
 
 </html>
